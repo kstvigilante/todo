@@ -1,0 +1,15 @@
+.header{
+    background: #ddd;
+    width: 100%;
+    height: 60px;
+}
+.footer{
+    background: #ddd;
+    width: 100%;
+    height: 60px;
+}
+
+.todo{
+     margin-top: 5px;
+}
+

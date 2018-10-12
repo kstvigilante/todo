@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Todos from "./todos"
+import Header from "./header"
+import Footer from "./footer";
+import Form from "./form";
+import "./main.css";
+
 
 class App extends Component {
+
+  state = {
+    todos: [
+      { id: 1, todo: "Go to burger king", time: "6:00 PM"},
+      { id: 2, todo: "Study React", time: "8:00 PM"},
+      { id: 3, todo: "Sleep", time: "10.00 PM"},
+      { id: 4, todo: "Go to burger king", time: "6:00 PM"},
+    ],
+  }
+
+  addTodo = (todo) =>{
+    let todos = [...this.state.todos, todo];
+    this.setState({
+      todos: todos
+    });
+    console.log("heello", this.state);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header/>
+        <Form addTodo = { this.addTodo }/>
+        <Todos todos = {this.state.todos} />
+        <Footer/>
       </div>
     );
   }
