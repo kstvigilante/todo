@@ -21,7 +21,6 @@ class Form extends React.Component {
         this.setState({
             id: new Date().valueOf()
         });
-        console.log("state: ", this.state);
         this.props.addTodo(this.state);
     }
 

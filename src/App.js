@@ -16,7 +16,6 @@ class App extends Component {
     this.setState({
       todos: todos
     });
-    console.log("heello", this.state);
   }
 
   deleteTodo = (id) =>{
@@ -29,7 +28,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("  inside render", this.state.todos);
     return (
       <div className="App">
         <Header/>
