@@ -4,7 +4,7 @@ import "./main.css"
 const Header = () =>{
     return(
         <div className = "header">
-            Do it just do it 
+            Just do it!!! 
         </div>
     );
 }

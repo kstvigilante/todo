@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Todos from "./todos"
 import Header from "./header"
-import Footer from "./footer";
 import Form from "./form";
 import "./main.css";
 
@@ -9,12 +8,7 @@ import "./main.css";
 class App extends Component {
 
   state = {
-    todos: [
-      { id: 1, todo: "Go to burger king", time: "6:00 PM"},
-      { id: 2, todo: "Study React", time: "8:00 PM"},
-      { id: 3, todo: "Sleep", time: "10.00 PM"},
-      { id: 4, todo: "Go to burger king", time: "6:00 PM"},
-    ],
+    todos: [],
   }
 
   addTodo = (todo) =>{
@@ -25,13 +19,22 @@ class App extends Component {
     console.log("heello", this.state);
   }
 
+  deleteTodo = (id) =>{
+    let todos = this.state.todos.filter(todo =>{
+      return id !== todo.id;
+    });
+    this.setState({
+      todos: todos,
+    });
+  }
+
   render() {
+    console.log("  inside render", this.state.todos);
     return (
       <div className="App">
         <Header/>
         <Form addTodo = { this.addTodo }/>
-        <Todos todos = {this.state.todos} />
-        <Footer/>
+        <Todos todos = {this.state.todos} deleteTodo = {this.deleteTodo}/>
       </div>
     );
   }

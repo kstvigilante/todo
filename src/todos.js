@@ -1,28 +1,28 @@
 import React from "react";
 import "./main.css";
 
-const Todos = (props) => {
-    const {todos} = props;
+const Todos = ({todos, deleteTodo}) => {
+    
     const todosList = todos.map(todo => {
-        if (todo.id < 50) {
             return (
                 <div key={todo.id} className = "todo">
-                    <div> id: {todo.id} </div>
-                    <div> task: {todo.todo} </div>
-                    <div> Time: {todo.time} </div>
+                    <div className = "task"> {todo.todo} </div>
+                    <div className = "time"> {todo.time} </div>
+                    <button onClick = {()=> {deleteTodo(todo.id)}} className = "click">delete</button>
                 </div>
             );
-        }
-        else{
-            return null;
-        }
     });
 
-    return (
-        <div>
-            {todosList}
-        </div>
-    );
+    if(todosList.length !== 0){
+        return (
+            <div> {todosList} </div>
+        );
+    }
+    else{
+        return(
+            <div className = "noTodo">You have nothing to do!!</div>
+        );
+    }
 }
 
 export default Todos;
